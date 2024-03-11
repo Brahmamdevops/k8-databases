@@ -26,7 +26,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: redis
-        image: "redis:{{ .Values.statefulset.imageVersion }}"
+        image: redis
         volumeMounts:
         - name: redis
           mountPath: /data
