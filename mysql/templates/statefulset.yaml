@@ -27,6 +27,12 @@ spec:
       containers:
       - name: mysql
         image: "brahmamdevops/mysql:{{ .Values.statefulset.imageVersion }}"
+        envFrom:
+        - configMapRef:
+            name: mysql
+        envFrom:
+        - secretRef:
+            name: mysql
         volumeMounts:
         - name: mysql
           mountPath: /var/lib/mysql
