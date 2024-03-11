@@ -29,7 +29,7 @@ spec:
         image: "brahmamdevops/mysql:{{ .Values.statefulset.imageVersion }}"
         volumeMounts:
         - name: mysql
-          mountPath: /data/db
+          mountPath: /var/lib/mysql
   volumeClaimTemplates:
   - metadata:
       name: mysql
