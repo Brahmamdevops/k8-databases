@@ -14,7 +14,7 @@ spec:
       project: roboshop
       tier: db 
   serviceName: "mongodb"
-  replicas: {{ .Values.deployment.replicas }}
+  replicas: {{ .Values.statefulset.replicas }}
   minReadySeconds: 10 # by default is 0
   template:
     metadata:
@@ -26,7 +26,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: mongodb
-        image: "brahmamdevops/mongodb:{{ .Values.deployment.imageVersion }}"
+        image: "brahmamdevops/mongodb:{{ .Values.statefulset.imageVersion }}"
         volumeMounts:
         - name: mongodb
           mountPath: /data/db
