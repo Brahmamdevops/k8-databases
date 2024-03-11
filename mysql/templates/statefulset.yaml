@@ -1,38 +1,38 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mongodb
+  name: mysql
   namespace: roboshop
   labels:
-    app: mongodb
+    app: mysql
     project: roboshop
     tier: db
 spec:
   selector:
     matchLabels:
-      app: mongodb # has to match .spec.template.metadata.labels
+      app: mysql # has to match .spec.template.metadata.labels
       project: roboshop
       tier: db 
-  serviceName: "mongodb"
+  serviceName: "mysql"
   replicas: {{ .Values.statefulset.replicas }}
   minReadySeconds: 10 # by default is 0
   template:
     metadata:
       labels:
-        app: mongodb
+        app: mysql
         project: roboshop
         tier: db
     spec:
       terminationGracePeriodSeconds: 10
       containers:
-      - name: mongodb
-        image: "brahmamdevops/mongodb:{{ .Values.statefulset.imageVersion }}"
+      - name: mysql
+        image: "brahmamdevops/mysql:{{ .Values.statefulset.imageVersion }}"
         volumeMounts:
-        - name: mongodb
+        - name: mysql
           mountPath: /data/db
   volumeClaimTemplates:
   - metadata:
-      name: mongodb
+      name: mysql
     spec:
       accessModes: [ "ReadWriteOnce" ]
       storageClassName: "ebs-sc"
