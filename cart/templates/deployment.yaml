@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: cart
-        image: brahmamdevops/cart:{{ .Values.deployment.imageVersion }}"
+        image: "brahmamdevops/cart:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
         resources:
           requests:
