@@ -25,7 +25,7 @@ spec:
       - name: shipping
         image: "brahmamdevops/shipping:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
-         resources:
+        resources:
           requests:
             memory: "256Mi"
             cpu: "150m"
