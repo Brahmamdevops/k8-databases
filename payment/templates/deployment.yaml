@@ -23,8 +23,15 @@ spec:
     spec:
       containers:
       - name: payment
-        image:"brahmamdevops/catalogue:{{ .Values.deployment.imageVersion }}"
+        image: "brahmamdevops/payment:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "50m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
         envFrom:
         - secretRef:
             name: payment
