@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: brahmamdevops/web:v1
+        image: "brahmamdevops/web:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
         resources:
           requests:
