@@ -29,7 +29,7 @@ spec:
         image: rabbitmq
         volumeMounts:
         - name: rabbitmq
-          mountPath: /data
+          mountPath: /var/lib/rabbitmq
   volumeClaimTemplates:
   - metadata:
       name: rabbitmq
