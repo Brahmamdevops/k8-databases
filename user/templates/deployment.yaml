@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: user
-        image: "brahmamdevops/catalogue:{{ .Values.deployment.imageVersion }}"
+        image: "brahmamdevops/user:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
         resources:
           requests:
