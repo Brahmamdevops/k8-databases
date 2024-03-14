@@ -10,12 +10,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: rabbitmq # has to match .spec.template.metadata.labels
+      app: rabbitmq
       project: roboshop
-      tier: db 
+      tier: db
   serviceName: "rabbitmq"
   replicas: {{ .Values.statefulset.replicas }}
-  minReadySeconds: 10 # by default is 0
   template:
     metadata:
       labels:
@@ -23,7 +22,6 @@ spec:
         project: roboshop
         tier: db
     spec:
-      terminationGracePeriodSeconds: 10
       containers:
       - name: rabbitmq
         image: rabbitmq
@@ -41,6 +39,4 @@ spec:
       storageClassName: "ebs-sc"
       resources:
         requests:
-          storage: 1Gi
-
-
+          storage: 2Gi
