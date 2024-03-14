@@ -26,6 +26,8 @@ spec:
       - name: web
         image: "brahmamdevops/web:{{ .Values.deployment.imageVersion }}"
         imagePullPolicy: Always
+        args:
+        - "--ignore-db-dir=lost+found"
         resources:
           requests:
             memory: "128Mi"
